@@ -10,6 +10,7 @@ public class application {
 
         Locale.setDefault(Locale.US);
         Scanner scanner = new Scanner(System.in);
+        Account acc;
 
         System.out.print("Enter account number: ");
         int conta = scanner.nextInt();
@@ -17,32 +18,26 @@ public class application {
         String titular = scanner.next();
         System.out.print("Is there an initial deposit (y/n)? ");
         char option = scanner.next().charAt(0);
-
-        Account acc = new Account(conta, titular);
-
-
-        double quantia;
-
         if (option == 'y') {
             System.out.print("Enter initial deposit value: ");
-            quantia = scanner.nextDouble();
-            acc.depositar(quantia);
+            double depositoInicial = scanner.nextDouble();
+            acc = new Account(conta, titular, depositoInicial);
         } else {
-            quantia = 0.00;
+            acc = new Account(conta, titular);
         }
 
         System.out.println("Account data:");
         System.out.println(acc);
 
         System.out.print("Enter a deposit value: ");
-        quantia = scanner.nextDouble();
-        acc.depositar(quantia);
+        double valorDeposito = scanner.nextDouble();
+        acc.depositar(valorDeposito);
         System.out.println("Updated account data:");
         System.out.println(acc);
 
         System.out.print("Enter a withdraw value: ");
-        quantia = scanner.nextDouble();
-        acc.sacar(quantia);
+        double valorSaque = scanner.nextDouble();
+        acc.sacar(valorSaque);
         System.out.println("Updated account data:");
         System.out.println(acc);
 

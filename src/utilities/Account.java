@@ -6,10 +6,10 @@ public class Account {
     private String titular;
     private double saldo;
 
-    public Account(int conta, String titular, double saldo) {
+    public Account(int conta, String titular, double depositoInicial) {
         this.conta = conta;
         this.titular = titular;
-        this.saldo = saldo;
+        depositar(depositoInicial);
     }
 
     public Account(int conta, String titular) {
@@ -49,6 +49,6 @@ public class Account {
                 + ", Titular: "
                 + titular
                 + ", Saldo: $ "
-                + saldo;
+                + String.format("%.2f", saldo);
     }
 }
